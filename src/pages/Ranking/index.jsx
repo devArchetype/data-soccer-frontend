@@ -1,9 +1,9 @@
-import styles from './style.module.css'
+import styles from './style.module.css';
 
 export const Ranking = () => {
 	return (
-		<>
-		<h1>Ranking</h1>
-		</>
-	)
-}
+		<main>
+			<h1>Ranking</h1>
+		</main>
+	);
+};

@@ -3,9 +3,9 @@ import { Router } from './routes/Router';
 import './styles/global.css';
 
 export const App = () => {
-  return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
-  )
-}
+	return (
+		<BrowserRouter>
+			<Router />
+		</BrowserRouter>
+	);
+};
