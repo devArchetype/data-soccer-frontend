@@ -1,10 +1,11 @@
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './routes/Router';
 import './styles/global.css';
 
 export const App = () => {
   return (
-    <>
-      <h1>Ola
-      </h1>
-    </>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
