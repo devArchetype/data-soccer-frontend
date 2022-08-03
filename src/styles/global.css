@@ -1,0 +1,30 @@
+:root {
+
+	--green-500: #409a16;
+	--green-400: #23873a;
+	--green-300: #06aa48; /* main */
+	--red-300: #fb0234;
+	--yellow-300: #e0dd0c; 
+	--black: #000000;
+	--gray-900: #121214;
+	--gray-800: #333333;
+	--gray-400: #dddddd;
+	--gray-200: #f3f3f3;
+	--gray-100: #efefef;
+	--white: #ffffff;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 62.5%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+	color: var(--gray-900);
+  -webkit-font-smoothing: antialiased;
+	background-color: var(--white);
+}
