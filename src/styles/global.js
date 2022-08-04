@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 		font-size: 62.5%;
 		font-family: 'Poppins', sans-serif;
 		font-weight: 400;
-		color: ${props => props.theme['gray-900']};
+		color: ${props => props.theme['blue-700']};
 		-webkit-font-smoothing: antialiased;
 		background-color: ${props => props.theme['white']};
 	}
