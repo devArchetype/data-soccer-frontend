@@ -1,9 +1,7 @@
-import styles from './style.module.css';
-
 export const Teams = () => {
 	return (
 		<main>
-			<h1>Teams</h1>
+			<h1>Times</h1>
 		</main>
 	);
 };

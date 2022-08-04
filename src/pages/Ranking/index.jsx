@@ -1,9 +1,7 @@
-import styles from './style.module.css';
-
 export const Ranking = () => {
 	return (
 		<main>
-			<h1>Ranking</h1>
+			<h1>Classificação</h1>
 		</main>
 	);
 };

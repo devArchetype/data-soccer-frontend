@@ -1,11 +1,18 @@
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './routes/Router';
-import './styles/global.css';
+import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from './styles/themes/default';
+import { GlobalStyle } from './styles/global';
+
 
 export const App = () => {
 	return (
-		<BrowserRouter>
-			<Router />
-		</BrowserRouter>
+		<ThemeProvider theme={defaultTheme}>
+			<GlobalStyle />
+
+			<BrowserRouter>
+				<Router />
+			</BrowserRouter>
+		</ThemeProvider>
 	);
 };

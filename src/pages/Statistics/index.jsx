@@ -1,9 +1,7 @@
-import styles from './style.module.css';
-
 export const Statistics = () => {
 	return (
 		<main>
-			<h1>Statistics</h1>
+			<h1>Estatísticas</h1>
 		</main>
 	);
 };
