@@ -14,7 +14,7 @@ export const MenuContainer = styled.ul `
   padding: 70px 1rem 1rem;
   transition: 0.4s;
 	list-style: none;
-  border-radius: 8px 0 0 8px;
+  border-radius: 15px 0 0 15px;
   background-color: ${(props) => props.theme['green-400']};
 
   ${({ isDesktop }) => isDesktop && css`
