@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const FilterContainer = styled.section`
   width: 100%;
@@ -20,18 +20,18 @@ export const FilterLimiter = styled.div`
     justify-content: space-evenly;
 
     h1 {
-      font-size: 1.2rem;
+      font-size: clamp(1vw, 1.2rem, 7vw);
       color: ${(props) => props.theme['green-300']};
     }
 
     select {
       cursor: pointer;
-      outline: 0 ;
+      outline: 0;
       border: 0;
       padding: 0 0.5rem 0 0;
       background-color: ${(props) => props.theme['white']};
       color: ${(props) => props.theme['blue-700']};
-      font-size: 1rem;
+      font-size: clamp(1vw, 1rem, 5.5vw);
       font-weight: 600;
       font-family: inherit;
 
@@ -48,6 +48,25 @@ export const FilterLimiter = styled.div`
   }
 
   .container-league-logo img {
-    width: 5rem;
+    width: clamp(5vw, 5rem, 15vw);
   }
+
+  ${({ responsive }) => responsive === 'false' && css`
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .container-context {
+      padding-left: 1rem;
+
+      h1 {
+        margin-bottom: .3rem;
+      }
+    }
+
+    .container-league-logo img {
+      display: none;
+    }
+  `};
 `;

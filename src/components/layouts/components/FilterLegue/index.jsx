@@ -1,12 +1,20 @@
+import { useEffect, useState } from 'react';
 import { FilterContainer, FilterLimiter } from './style';
+import { useMediaQuery } from '../../../../hooks/useMediaQuery';
 
-// * preenchimento padrao de alguns campos ate fazer a conecao com a api
+// * preenchimento padrao de alguns campos ate fazer a conexao com a api
 
 export const FilterLegue = ({ label }) => {
+	const [filterIsResponsive, setFilterIsResponsive] = useState(true);
+	const isResponsive = useMediaQuery('(min-width: 360px)');
+
+	useEffect(() => {
+		isResponsive ? setFilterIsResponsive(true) : setFilterIsResponsive(false);
+	}, [isResponsive]);
+
 	return (
 		<FilterContainer>
-			<FilterLimiter>
-
+			<FilterLimiter responsive={filterIsResponsive.toString()}>
 				<div className="container-context">
 					<h1>{label}</h1>
 
