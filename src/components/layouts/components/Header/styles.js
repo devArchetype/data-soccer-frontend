@@ -5,10 +5,11 @@ export const HeaderContainer = styled.header `
 	color: ${(props) => props.theme['white']};
 	background-color: ${(props) => props.theme['green-300']};
 
-	h2 {
+	h2 a {
 		font-size: 1.5rem;
 		font-weight: 700;
 		color: ${(props) => props.theme['white']};
+    text-decoration: none;
 	}
 `;
 

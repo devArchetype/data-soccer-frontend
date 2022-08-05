@@ -4,6 +4,7 @@ import { Menu } from '../Menu';
 import { Button } from '../../../Button';
 import { HeaderContainer, HeaderLimiter } from './styles';
 import { List, X } from 'phosphor-react';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
 	const [menuIsVisible, setMenuIsVisible] = useState(true);
@@ -20,7 +21,11 @@ export const Header = () => {
 	return (
 		<HeaderContainer>
 			<HeaderLimiter>
-				<h2 onClick={handleMenuIsVisibility}>DataSoccer</h2>
+				<h2>
+					<Link to='/home'>
+            DataSoccer
+					</Link>
+				</h2>
 				<nav>
 					{isDesktop || (
 						<Button
