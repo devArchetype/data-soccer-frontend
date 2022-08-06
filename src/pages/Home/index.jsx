@@ -7,7 +7,7 @@ import { Logo } from '../../components/Logo';
 
 export const Home = () => {
 	return (
-		<BackgroundImageContainer>
+		<>
 			<ContentContainer>
 				<HomeContainer>
 					<div>
@@ -23,6 +23,7 @@ export const Home = () => {
 					<Footer textColor='white' />
 				</HomeContainer>
 			</ContentContainer>
-		</BackgroundImageContainer>
+			<BackgroundImageContainer/>
+		</>
 	);
 };

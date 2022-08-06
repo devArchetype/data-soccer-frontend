@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const LogoContainer = styled.h2 `
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 0;
   font-size: clamp(2.3rem, 10vw, 5rem);
   color: ${(props) => props.theme['white']};
