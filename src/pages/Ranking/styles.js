@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const RankingContainer = styled.section`
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 1rem;
   overflow: auto;
+  border-radius: 1rem;
 
   table {
     width: 100%;

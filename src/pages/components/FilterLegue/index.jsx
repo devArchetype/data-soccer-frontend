@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FilterContainer } from './style';
-import { ContentContainer } from '../../../../pages/components/ContentContainer';
-import { useMediaQuery } from '../../../../hooks/useMediaQuery';
+import { ContentContainer } from '../ContentContainer';
+import { useMediaQuery } from '../../../hooks/useMediaQuery';
 
 // * preenchimento padrao de alguns campos ate fazer a conexao com a api
 
