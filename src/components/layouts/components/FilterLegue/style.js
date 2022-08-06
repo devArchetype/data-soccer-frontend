@@ -3,12 +3,7 @@ import styled, { css } from 'styled-components';
 export const FilterContainer = styled.section`
   width: 100%;
   margin-top: 1rem;
-`;
-
-export const FilterLimiter = styled.div`
-  width: 100%;
-	max-width: 1280px;
-	padding: 1rem;
+  padding: 1rem;
   border-radius: 1rem;
   background-color: ${(props) => props.theme['white']};
   display: flex;
