@@ -6,6 +6,9 @@ export const Menu = ({ isVisible, isDesktop }) => {
 	return (
 		<MenuContainer isVisible={isVisible} isDesktop={isDesktop}>
 			<MenuItem>
+				<NavLink to='/'>Início</NavLink>
+			</MenuItem>
+			<MenuItem>
 				<NavLink to='/classificacao'>Classificação</NavLink>
 			</MenuItem>
 			<MenuItem>

@@ -14,8 +14,10 @@ export const MenuContainer = styled.ul `
   padding: 70px 1rem 1rem;
   transition: 0.4s;
 	list-style: none;
-  border-radius: 8px 0 0 8px;
-  background-color: ${(props) => props.theme['green-400']};
+  border-radius: 15px 0 0 15px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 1);
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 1);
+  background-color: ${(props) => props.theme['green-300']};
 
   ${({ isDesktop }) => isDesktop && css`
     width: auto;
@@ -24,6 +26,8 @@ export const MenuContainer = styled.ul `
     position: static;
     padding: 0;
     background-color: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none;
   `};
 `;
 
