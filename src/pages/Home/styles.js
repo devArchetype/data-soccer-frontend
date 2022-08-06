@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const BackgroundImageContainer = styled.div `
   width: 100%;
-  height: calc(100% - 70px);
+  height: 100%;
   position: relative;
   background-image: url(./src/assets/images/home-background.jpg);
   background-position: center center;
