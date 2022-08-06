@@ -2,12 +2,11 @@ import styled, { css } from 'styled-components';
 
 export const FilterContainer = styled.section`
   width: 100%;
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 15px;
   background-color: ${(props) => props.theme['white']};
   display: flex;
   justify-content: space-between;
+  padding: 0 0.5rem;
 
   .container-context {
     display: flex;
@@ -44,6 +43,9 @@ export const FilterContainer = styled.section`
 
   .container-league-logo img {
     width: clamp(5vw, 5rem, 15vw);
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
   }
 
   ${({ responsive }) => responsive === 'false' && css`

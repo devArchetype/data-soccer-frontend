@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const RankingContainer = styled.section`
   width: 100%;
-  margin-top: 1rem;
   overflow: auto;
   border-radius: 1rem;
 
@@ -24,6 +23,15 @@ export const RankingContainer = styled.section`
       background-color: ${(props) => props.theme['white']};
     }
   }
+`;
+
+export const RankingPageContainer = styled.main `
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
 `;
 
 export const Club = styled.tr`

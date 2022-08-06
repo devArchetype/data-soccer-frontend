@@ -15,4 +15,20 @@ export const GlobalStyle = createGlobalStyle`
 		-webkit-font-smoothing: antialiased;
 		background-color: ${props => props.theme['gray-500']};
 	}
+
+  ::selection {
+    background-color: ${props => props.theme['green-300']};
+    color: ${props => props.theme['white']};
+  }
+
+  ::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 15px;
+  background-color: ${props => props.theme['gray-500']};
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background-color: ${props => props.theme['blue-700']};
+}
 `;

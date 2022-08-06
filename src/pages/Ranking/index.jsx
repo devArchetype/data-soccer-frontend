@@ -1,7 +1,7 @@
-import { FilterLegue } from '../components/FilterLegue';
+import { FilterLeague } from '../components/FilterLeague';
 import { ContentContainer } from '../components/ContentContainer';
 import { Footer } from '../components/Footer';
-import { RankingContainer, Club } from './styles';
+import { RankingContainer, Club, RankingPageContainer } from './styles';
 import { nanoid } from 'nanoid';
 
 export const Ranking = () => {
@@ -71,9 +71,9 @@ export const Ranking = () => {
 	};
 
 	return (
-		<main>
-			<FilterLegue label="Classificação" />
-			<ContentContainer>
+		<ContentContainer>
+			<RankingPageContainer>
+				<FilterLeague label="Classificação" />
 				<RankingContainer>
 					<table>
 						<thead>
@@ -97,8 +97,8 @@ export const Ranking = () => {
 						</tbody>
 					</table>
 				</RankingContainer>
-			</ContentContainer>
-			<Footer />
-		</main>
+				<Footer />
+			</RankingPageContainer>
+		</ContentContainer>
 	);
 };
