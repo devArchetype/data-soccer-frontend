@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
   border-radius: 15px;
   background-color: ${props => props.theme['gray-500']};
 }
