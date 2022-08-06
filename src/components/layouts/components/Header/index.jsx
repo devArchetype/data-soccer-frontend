@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from '../../../../hooks/useMediaQuery';
 import { Menu } from '../Menu';
 import { Button } from '../../../Button';
-import { HeaderContainer, HeaderLimiter } from './styles';
+import { HeaderContainer, HeaderLimiter, SrOnly } from './styles';
 import { List, X } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 
@@ -21,9 +21,22 @@ export const Header = () => {
 	return (
 		<HeaderContainer>
 			<HeaderLimiter>
-				<h2>
+				<h2 title='Voltar ao início'>
 					<Link to='/home'>
-            DataSoccer
+						{isDesktop ? (
+							'DataSoccer'
+						) : (
+
+							<>
+								<img
+									src="./src/assets/images/datasoccer-logo.svg"
+									alt="Bola de futebol com detalhes azuis e brancos"
+								/>
+								<SrOnly>
+                  DataSoccer
+								</SrOnly>
+							</>
+						)}
 					</Link>
 				</h2>
 				<nav>

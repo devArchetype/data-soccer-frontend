@@ -23,7 +23,7 @@ export const BackgroundImageContainer = styled.div `
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: auto;
-    filter: blur(3px);
+    filter: blur(2px);
   }
 `;
 
@@ -36,7 +36,7 @@ export const HomeContainer = styled.main `
   justify-content: space-between;
   position: relative;
   z-index: 4;
-  padding-top: 70px;
+  padding-top: 60px;
 
   & div p {
     text-align: center;
@@ -45,11 +45,3 @@ export const HomeContainer = styled.main `
   }
 
 `;
-
-// mobile: 2.5rem desktop: 5rem;
-export const HomeTitle = styled.h1 `
-  font-size: clamp(2.5rem, 10vw, 5rem);
-  color: ${(props) => props.theme['white']};
-`;
-
-

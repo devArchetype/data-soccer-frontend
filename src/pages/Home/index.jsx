@@ -1,8 +1,9 @@
-import { BackgroundImageContainer, HomeContainer, HomeTitle } from './styles';
+import { BackgroundImageContainer, HomeContainer } from './styles';
 import { ContentContainer } from '../components/ContentContainer';
 import { Button } from '../../components/Button';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
+import { Logo } from '../../components/Logo';
 
 export const Home = () => {
 	return (
@@ -10,9 +11,7 @@ export const Home = () => {
 			<ContentContainer>
 				<HomeContainer>
 					<div>
-						<HomeTitle>
-            DataSoccer
-						</HomeTitle>
+						<Logo/>
 						<p>Acompanhe as principais ligas do futebol internacional</p>
 					</div>
 
@@ -21,8 +20,7 @@ export const Home = () => {
               Acompanhe já!
 						</Button>
 					</Link>
-
-					<Footer textColor='white'/>
+					<Footer textColor='white' />
 				</HomeContainer>
 			</ContentContainer>
 		</BackgroundImageContainer>
