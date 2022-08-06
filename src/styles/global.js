@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 		color: ${props => props.theme['blue-700']};
 		-webkit-font-smoothing: antialiased;
 		background-color: ${props => props.theme['gray-500']};
+    margin-top: 70px;
 	}
 
   ::selection {
@@ -22,14 +23,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-  border-radius: 15px;
-  background-color: ${props => props.theme['gray-500']};
-}
+    width: 4px;
+    height: 4px;
+    border-radius: 15px;
+    background-color: ${props => props.theme['gray-500']};
+  }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 15px;
-  background-color: ${props => props.theme['blue-700']};
-}
+  ::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: ${props => props.theme['blue-700']};
+  }
 `;

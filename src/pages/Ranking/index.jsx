@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { FilterLeague } from '../components/FilterLeague';
 import { ContentContainer } from '../components/ContentContainer';
 import { Footer } from '../components/Footer';
@@ -7,13 +5,6 @@ import { RankingContainer, Club, RankingPageContainer } from './styles';
 import { nanoid } from 'nanoid';
 
 export const Ranking = () => {
-	const [tableIsResponsive, setTableIsResponsive] = useState(false);
-	const isResponsive = useMediaQuery('(max-height: 300px) and (orientation: landscape)');
-
-	useEffect(() => {
-		isResponsive ? setTableIsResponsive(true) : setTableIsResponsive(false);
-	}, [isResponsive]);
-
 	const teamsData = []; //simbolizando os dados recebidos da api
 
 	const fillTable = (size) => {

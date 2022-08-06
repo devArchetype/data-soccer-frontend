@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const LayoutContainer = styled.div `
 	width: 100vw;
 	max-width: 100vw;
-	height: 100vh;
-	max-height: 100vh;
+	/* height: 100vh; */
+	/* min-height: 100vh; */
   overflow: hidden;
 	background-color: var(--gray-500);
 `;

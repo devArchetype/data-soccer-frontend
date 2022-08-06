@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const BackgroundImageContainer = styled.div `
+export const BackgroundImageContainer = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 70px);
   position: relative;
   background-image: url(./src/assets/images/home-background.jpg);
   background-position: center center;
@@ -27,8 +27,8 @@ export const BackgroundImageContainer = styled.div `
   }
 `;
 
-export const HomeContainer = styled.main `
-  height: 100%;
+export const HomeContainer = styled.main`
+  min-height: calc(100vh - 110px);
   width: 100%;
   display: flex;
   flex-direction: column;
