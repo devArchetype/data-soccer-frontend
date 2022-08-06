@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const FilterContainer = styled.section`
   width: 100%;
+  min-height: 6rem;
   border-radius: 15px;
   background-color: ${(props) => props.theme['white']};
   display: flex;
@@ -42,7 +43,8 @@ export const FilterContainer = styled.section`
   }
 
   .container-league-logo img {
-    width: clamp(5vw, 5rem, 15vw);
+    padding-top: .5rem;
+    width: clamp(5vw, 5rem, 20vw);
     display: grid;
     place-items: center;
     border-radius: 15px;

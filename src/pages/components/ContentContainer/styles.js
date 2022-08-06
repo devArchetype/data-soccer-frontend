@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div `
+export const Container = styled.div`
 	width: 100%;
 	max-width: 1280px;
 	height: calc(100% - 70px);
-	padding: 1rem 1rem 0 1rem;
+	padding: 1rem;
 	margin: 0 auto;
 `;
