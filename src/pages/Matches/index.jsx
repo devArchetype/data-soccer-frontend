@@ -11,7 +11,7 @@ export const Matches = () => {
 	return (
 		<ContentContainer>
 			<PageContainer>
-				<FilterLeague label="Classificação" />
+				<FilterLeague label="Partidas" />
 
 				<Input
 					type='number'
