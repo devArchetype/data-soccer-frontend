@@ -123,23 +123,17 @@ export const Teams = () => {
 		<ContentContainer>
 			<TeamsContainer>
 				<FilterLeague label="Times" />
-
-				<section className="filter-teams">
-					<div className="input-container">
-						<Input
-							label="Buscar Time: "
-							type="text"
-							placeholder="nome do time"
-							onChange={(event) => setSearchTeam(event.target.value)}
-							value={searchTeam}
-						/>
-					</div>
-				</section>
+				<Input
+					label="Buscar Time:"
+					type="text"
+					placeholder="Nome do time"
+					onChange={(event) => setSearchTeam(event.target.value)}
+					value={searchTeam}
+				/>
 
 				<section className="teams-presentation">
 					{fillTeams(18)}
 				</section>
-
 				<Footer />
 			</TeamsContainer>
 		</ContentContainer>

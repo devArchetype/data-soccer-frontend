@@ -2,44 +2,46 @@ import styled, { css } from 'styled-components';
 
 export const InputContainer = styled.div`
   width: 100%;
-  max-width: 768px;
+  max-width: 480px;
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  background-color: ${(props) => props.theme['gray-100']};
   border-radius: 15px;
+  background-color: ${(props) => props.theme['gray-100']};
+`;
 
-  .input-context {
-    position: relative;
+export const InputWrap = styled.div `
+  height: 100%;
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0.1rem;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  background-color: ${(props) => props.theme['gray-200']};
 
-    .icon-search{
-      position: absolute;
-      top: .65rem;
-      right: 1rem;
-    }
+  &:focus-within {
+    border-color: ${(props) => props.theme['green-300']};
   }
 `;
 
 export const InputBox = styled.input`
+  width: 100%;
+  min-width: 160px;
+  height: 100%;
+  padding: 0.6rem;
   font-size: 1rem;
-  padding: .6rem;
   outline: none;
-  border: 2px solid transparent;
-  border-radius: 10px;
+  border: none;
+  border-radius: 15px;
   background-color: ${(props) => props.theme['gray-200']};
-
-  &:focus {
-    border-color: ${(props) => props.theme['green-300']};
-  }
-
-  &::placeholder {
-    font-weight: 600;
-  }
 `;
 
 export const Label = styled.label`
-  padding: .5rem;
+  padding: 0.4rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;

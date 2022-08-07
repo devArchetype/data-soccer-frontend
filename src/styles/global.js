@@ -8,13 +8,13 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
+    margin-top: 70px;
 		font-size: 62.5%;
 		font-family: 'Poppins', sans-serif;
 		font-weight: 400;
 		color: ${props => props.theme['blue-700']};
 		-webkit-font-smoothing: antialiased;
 		background-color: ${props => props.theme['gray-500']};
-    margin-top: 70px;
 	}
 
   ::selection {
@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
+    position: absolute;
     border-radius: 15px;
     background-color: ${props => props.theme['gray-500']};
   }

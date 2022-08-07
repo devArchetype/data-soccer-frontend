@@ -4,18 +4,9 @@ export const TeamsContainer = styled.main`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-
-  .filter-teams {
-    width: 100%;
-    display: flex;
-
-    .input-container input {
-      max-width: 10rem;
-    }
-  }
 
   .teams-presentation {
     display: flex;

@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const LayoutContainer = styled.div `
 	width: 100vw;
-	max-width: 100vw;
+	max-width: calc(100vw - 4px);
 	/* height: 100vh; */
 	/* min-height: 100vh; */
   overflow: hidden;
-	background-color: var(--gray-500);
 `;
 
 export const ContentContainer = styled.div `
