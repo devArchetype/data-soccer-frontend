@@ -7,7 +7,6 @@ import { Round } from './components/Round';
 import roundsData from './data/rounds-data.json';
 
 export const Matches = () => {
-
 	return (
 		<ContentContainer>
 			<PageContainer>
@@ -15,13 +14,7 @@ export const Matches = () => {
 
 				<MatchesContainer>
 					{roundsData.map(({ number, matches}) => {
-						return (
-							<Round
-								key={number}
-								roundNumber={number}
-								matchesData={matches}
-							/>
-						);
+						return <Round key={number} roundNumber={1} matchesData={matches} />;
 					})}
 
 				</MatchesContainer>

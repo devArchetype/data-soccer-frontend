@@ -14,7 +14,6 @@ export const RoundHeader = styled.div `
     padding: 0.5rem;
     border-radius: ${(props) => props.isCollapsed ? '15px 15px 0 0' : '15px'};
     background-color: ${(props) => props.theme['gray-100']};
-
     h3 {
       font-size: 1rem;
       font-weight: 600;
@@ -28,10 +27,12 @@ export const MatchesList = styled.ol `
   flex-direction: column;
   gap: 0.2rem;
   list-style: none;
+  overflow-x: auto;
 `;
 
 export const MatchContainer = styled.li `
   width: 100%;
+  min-width: 700px;
   display: inline-flex;
   align-items: center;
   justify-content: space-evenly;
