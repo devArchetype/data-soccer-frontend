@@ -4,7 +4,7 @@ export const FilterContainer = styled.section`
   width: 100%;
   min-height: 6rem;
   border-radius: 15px;
-  background-color: ${(props) => props.theme['white']};
+  background-color: ${(props) => props.theme['gray-100']};
   display: flex;
   justify-content: space-between;
   padding: 0 0.5rem;
@@ -24,7 +24,7 @@ export const FilterContainer = styled.section`
       outline: 0;
       border: 0;
       padding: 0 0.5rem 0 0;
-      background-color: ${(props) => props.theme['white']};
+      background-color: ${(props) => props.theme['gray-100']};
       color: ${(props) => props.theme['blue-700']};
       font-size: clamp(1vw, 1rem, 5.5vw);
       font-weight: 600;

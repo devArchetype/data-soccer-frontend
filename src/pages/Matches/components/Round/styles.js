@@ -36,6 +36,7 @@ export const MatchContainer = styled.li `
   display: inline-flex;
   align-items: center;
   justify-content: space-evenly;
+  gap: 0.5rem;
   padding: 0.1rem;
   font-size: 1rem;
   background-color: ${(props) => props.theme['gray-200']};
@@ -79,6 +80,7 @@ export const ScoreBoardWrap = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-self: center;
 
   span {
     line-height: 100%;

@@ -5,12 +5,22 @@ import { Footer } from '../components/Footer';
 import { Round } from './components/Round';
 
 import roundsData from './data/rounds-data.json';
+import { Input } from '../../components/Input';
 
 export const Matches = () => {
 	return (
 		<ContentContainer>
 			<PageContainer>
 				<FilterLeague label="Classificação" />
+
+				<Input
+					type='number'
+					placeholder='00'
+					label='Buscar rodada:'
+					srLabel={false}
+					min={1}
+					max={38}
+				/>
 
 				<MatchesContainer>
 					{roundsData.map(({ number, matches}) => {

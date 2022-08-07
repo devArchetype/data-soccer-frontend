@@ -1,11 +1,14 @@
 import { BackgroundImageContainer, HomeContainer } from './styles';
+import { Link } from 'react-router-dom';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { ContentContainer } from '../components/ContentContainer';
 import { Button } from '../../components/Button';
-import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import { Logo } from '../../components/Logo';
 
 export const Home = () => {
+	const isDesktop = useMediaQuery('(min-width: 768px)');
+
 	return (
 		<>
 			<ContentContainer>
@@ -16,14 +19,16 @@ export const Home = () => {
 					</div>
 
 					<Link to='/classificacao'>
-						<Button variantColor='green-300'>
-              Acompanhe já!
-						</Button>
+						{isDesktop && (
+							<Button variantColor='green-300'>
+                Acompanhe já!
+							</Button>
+						)}
 					</Link>
 					<Footer textColor='white' />
 				</HomeContainer>
 			</ContentContainer>
-			<BackgroundImageContainer/>
+			<BackgroundImageContainer />
 		</>
 	);
 };
