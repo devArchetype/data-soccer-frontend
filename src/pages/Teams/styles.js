@@ -11,6 +11,10 @@ export const TeamsContainer = styled.main`
   .filter-teams {
     width: 100%;
     display: flex;
+
+    .input-container input {
+      max-width: 10rem;
+    }
   }
 
   .teams-presentation {
