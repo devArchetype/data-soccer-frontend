@@ -10,6 +10,7 @@ export const ButtonContainer = styled.button `
   border: none;
   transition: 0.1s;
   cursor: pointer;
+  background-color: ${({ theme, variantColor }) => theme[variantColor]};
 
   ${({ variantType }) => variantType === 'icon' && css`
     padding: 0;

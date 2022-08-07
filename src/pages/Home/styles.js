@@ -30,5 +30,4 @@ export const HomeContainer = styled.main`
     font-size: 1.1rem;
     color: ${(props) => props.theme['white']};
   }
-
 `;

@@ -7,7 +7,8 @@ import { Footer } from '../components/Footer';
 import { Logo } from '../../components/Logo';
 
 export const Home = () => {
-	const isDesktop = useMediaQuery('(min-width: 768px)');
+	const isDesktopHeight = useMediaQuery('(min-height: 480px)');
+	const isDesktopWidth = useMediaQuery('(min-width: 480px)');
 
 	return (
 		<>
@@ -19,7 +20,7 @@ export const Home = () => {
 					</div>
 
 					<Link to='/classificacao'>
-						{isDesktop && (
+						{isDesktopHeight && isDesktopWidth && (
 							<Button variantColor='green-300'>
                 Acompanhe já!
 							</Button>

@@ -26,6 +26,7 @@ export const MenuContainer = styled.ul `
     flex-direction: row;
     position: static;
     padding: 0;
+    border-radius: 0;
     background-color: transparent;
     box-shadow: none;
     -webkit-box-shadow: none;
