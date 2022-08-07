@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 export const BackgroundImageContainer = styled.div`
-  width: 100%;
-  height: 100%;
   position: absolute;
   z-index: 1;
   inset: 0;
   background-image: url(./src/assets/images/home-background.jpg);
-  background-position: center;
+  background-position: center center;
+  background-position-x: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: auto;
   background-color: ${(props) => props.theme['blue-700']};
   filter: brightness(50%);
 `;
@@ -23,7 +23,7 @@ export const HomeContainer = styled.main`
   justify-content: space-between;
   position: relative;
   z-index: 6;
-  padding-top: 60px;
+  padding-top: clamp(0rem, 10vh, 6rem);
 
   & div p {
     text-align: center;
