@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const HeaderContainer = styled.header `
 	width: 100%;
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 9;
 	color: ${(props) => props.theme['white']};
 	background-color: ${(props) => props.theme['green-300']};

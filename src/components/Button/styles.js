@@ -5,6 +5,7 @@ export const ButtonContainer = styled.button `
   border-radius: 15px;
   background-color: ${({ theme, variantColor }) => theme[variantColor]};
   font-size: 1.2rem;
+  line-height: 0;
   color: ${(props) => props.theme['white']};
   outline: none;
   border: none;
@@ -12,6 +13,7 @@ export const ButtonContainer = styled.button `
 
   ${({ variantType }) => variantType === 'icon' && css`
     padding: 0;
+    color: ${({ theme, variantColor }) => theme[variantColor]};
     background-color: transparent;
   `};
 `;
