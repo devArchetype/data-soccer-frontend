@@ -8,12 +8,17 @@ export const ButtonContainer = styled.button `
   color: ${(props) => props.theme['white']};
   outline: none;
   border: none;
+  transition: 0.1s;
   cursor: pointer;
 
   ${({ variantType }) => variantType === 'icon' && css`
     padding: 0;
     background-color: transparent;
   `};
+
+  &:hover {
+    filter: brightness(90%);
+  }
 `;
 
 
