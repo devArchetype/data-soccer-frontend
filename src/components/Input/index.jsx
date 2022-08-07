@@ -1,6 +1,6 @@
 import { InputBox, InputContainer, Label } from './styles';
 
-export const Input = ({ type, placeholder, label, srLabel, min, max, step }) => {
+export const Input = ({ type, placeholder, label, srLabel, min, max, step, value, onChange }) => {
 	const inputID = label.split(' ').join('_');
 
 	return (
@@ -13,6 +13,8 @@ export const Input = ({ type, placeholder, label, srLabel, min, max, step }) => 
 				min={min}
 				max={max}
 				step={step}
+				value={value}
+				onChange={onChange}
 			/>
 		</InputContainer>
 	);

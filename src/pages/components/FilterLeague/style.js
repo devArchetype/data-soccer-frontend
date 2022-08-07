@@ -43,11 +43,12 @@ export const FilterContainer = styled.section`
   }
 
   .container-league-logo img {
-    padding-top: .5rem;
-    width: clamp(5vw, 5rem, 20vw);
+    margin: .4rem 0;
+    width: clamp(5vw, 5rem, 22vw);
     display: grid;
     place-items: center;
-    border-radius: 15px;
+    border-radius: 1pc;
+    border: 2px solid ${(props) => props.theme['gray-500']};;
   }
 
   ${({ responsive }) => responsive === 'false' && css`
