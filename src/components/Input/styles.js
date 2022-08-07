@@ -9,6 +9,16 @@ export const InputContainer = styled.div`
   justify-content: space-between;
   background-color: ${(props) => props.theme['gray-100']};
   border-radius: 15px;
+
+  .input-context {
+    position: relative;
+
+    .icon-search{
+      position: absolute;
+      top: .65rem;
+      right: 1rem;
+    }
+  }
 `;
 
 export const InputBox = styled.input`
