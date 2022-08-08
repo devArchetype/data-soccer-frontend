@@ -19,6 +19,8 @@ export const GraphicContainer = styled.div`
   }
 
   .title {
+    width: 100%;
+    min-width: 500px;
     font-size: .7rem;
     text-align: center;
   }
