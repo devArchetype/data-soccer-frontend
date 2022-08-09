@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { EnviromentContext } from '../../../../contexts/EnviromentContext';
 import {
 	PlayerContainer,
 	PlayerName,
@@ -10,6 +12,8 @@ import {
 } from './styles';
 
 export const Player = () => {
+	const { imagesPath } = useContext(EnviromentContext);
+
 	return (
 		<PlayerContainer>
 			<PlayerName>
@@ -18,16 +22,19 @@ export const Player = () => {
 
 			<ImageContainer>
 				<PlayerPlaceholder>
-					<img src="./public/images/player-placeholder.svg" alt="" />
+					<img
+						src={`${imagesPath}/player-placeholder.svg`}
+						alt="Silhueta jogador"
+					/>
 				</PlayerPlaceholder>
 
 				<CardsWrap>
 					<Card>
-						<img src="./public/images/cards/yellow-card.svg" alt="Cartão amarelo" />
+						<img src={`${imagesPath}/yellow-card.svg`} alt="Cartão amarelo" />
 						<span>{'1'}</span>
 					</Card>
 					<Card>
-						<img src="./public/images/cards/red-card.svg" alt="Cartão vermelho" />
+						<img src={`${imagesPath}/red-card.svg`} alt="Cartão vermelho" />
 						<span>{'0'}</span>
 					</Card>
 				</CardsWrap>

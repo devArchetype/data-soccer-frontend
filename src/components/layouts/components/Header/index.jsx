@@ -29,7 +29,7 @@ export const Header = () => {
 
 							<>
 								<img
-									src="./public/images/datasoccer-logo.svg"
+									src={`${import.meta.env.VITE_IMAGES_PATH}/datasoccer-logo.svg`}
 									alt="Bola de futebol com detalhes azuis e brancos"
 								/>
 								<SrOnly>

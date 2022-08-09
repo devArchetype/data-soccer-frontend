@@ -28,7 +28,7 @@ export const Input = ({
 					value={value}
 					onChange={onChange}
 				/>
-  	    <MagnifyingGlass weight='bold' size={25} />
+				<MagnifyingGlass weight='bold' size={25} />
 			</InputWrap>
 		</InputContainer>
 	);

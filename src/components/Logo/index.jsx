@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { EnviromentContext } from '../../contexts/EnviromentContext';
 import {
 	LogoContainer,
 	LetterO,
@@ -7,6 +9,8 @@ import {
 } from './styles';
 
 export const Logo = () => {
+	const { imagesPath } = useContext(EnviromentContext);
+
 	return (
 		<LogoContainer>
       DataS
@@ -14,11 +18,11 @@ export const Logo = () => {
 				<LetterO>o</LetterO>
 
 				<AnimationBall>
-					<img src="./public/images/logo-ball.png" alt="" />
+					<img src={`${imagesPath}/logo-ball.png`} alt="Bola de futebol" />
 				</AnimationBall>
 
 				<AnimationGround>
-					<img src="./public/images/logo-ground.png" alt="" />
+					<img src={`${imagesPath}/logo-ground.png`} alt="Gramado" />
 				</AnimationGround>
 			</AnimationContainer>
       ccer

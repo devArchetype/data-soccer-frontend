@@ -1,3 +1,5 @@
+import { useContext, useState } from 'react';
+import { EnviromentContext } from '../../../../contexts/EnviromentContext';
 import {
 	RoundContainer,
 	MatchesList,
@@ -11,9 +13,10 @@ import {
 } from './styles';
 import { Button } from '../../../../components/Button';
 import { CaretDown, CaretUp } from 'phosphor-react';
-import { useState } from 'react';
 
 export const Round = ({ roundNumber, matchesData }) => {
+	const { imagesPath } = useContext(EnviromentContext);
+
 	const [matchesListCollapse, setMatchesListCollapse] = useState(false);
 
 	const handleMatchesListCollapse = () => {
@@ -42,18 +45,27 @@ export const Round = ({ roundNumber, matchesData }) => {
 						<MatchContainer key={id}>
 							<CardsWrap>
 								<Card>
-									<img src="./public/images/cards/yellow-card.svg" alt="Cartão amarelo" />
+									<img
+										src={`${imagesPath}/yellow-card.svg`}
+										alt="Cartão amarelo"
+									/>
 									<span>{home.yellow_cards}</span>
 								</Card>
 								<Card>
-									<img src="./public/images/cards/red-card.svg" alt="Cartão vermelho" />
+									<img
+										src={`${imagesPath}/red-card.svg`}
+										alt="Cartão vermelho"
+									/>
 									<span>{home.red_cards}</span>
 								</Card>
 							</CardsWrap>
 
 							<Team isHome={true}>
 								<span>{home.name}</span>
-								<img src="./public/images/datasoccer-logo.svg" alt="Cartão amarelo" />
+								<img
+									src={`${imagesPath}/datasoccer-logo.svg`}
+									alt="Cartão amarelo"
+								/>
 							</Team>
 
 							<ScoreBoardWrap>
@@ -68,16 +80,25 @@ export const Round = ({ roundNumber, matchesData }) => {
 
 							<Team isHome={false}>
 								<span>{away.name}</span>
-								<img src="./public/images/datasoccer-logo.svg" alt="Cartão amarelo" />
+								<img
+									src={`${imagesPath}/datasoccer-logo.svg`}
+									alt="Cartão amarelo"
+								/>
 							</Team>
 
 							<CardsWrap>
 								<Card>
-									<img src="./public/images/cards/yellow-card.svg" alt="Cartão amarelo" />
+									<img
+										src={`${imagesPath}/yellow-card.svg`}
+										alt="Cartão amarelo"
+									/>
 									<span>{away.yellow_cards}</span>
 								</Card>
 								<Card>
-									<img src="./public/images/cards/red-card.svg" alt="Cartão vermelho" />
+									<img
+										src={`${imagesPath}/red-card.svg`}
+										alt="Cartão vermelho"
+									/>
 									<span>{away.red_cards}</span>
 								</Card>
 							</CardsWrap>

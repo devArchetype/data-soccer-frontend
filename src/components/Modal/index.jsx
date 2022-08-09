@@ -2,10 +2,15 @@ import { ModalContainer, ModalWrap, ContentBox, ContentBoxHeader, CodeContainer 
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { Info, X } from 'phosphor-react';
 import { Button } from '../Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Modal = ({ codes }) => {
 	const [displayModalContainer, setDisplayModalContainer] = useState(false);
+	const [codeData, setCodeData] = useState([]);
+
+	useEffect(() => {
+		codes && setCodeData(codes);
+	}, [codes]);
 
 	const handleDisplayModalContainer = () => {
 		setDisplayModalContainer((prevState) => !prevState);
@@ -36,8 +41,8 @@ export const Modal = ({ codes }) => {
 						</Button>
 					</ContentBoxHeader>
 
-					{codes ? (
-						codes.map(({ label, code }) => {
+					{codeData ? (
+						codeData.map(({ label, code }) => {
 							return (
 								<CodeContainer key={label}>
 									<strong>{label}</strong>

@@ -1,5 +1,6 @@
+import { useContext, useState } from 'react';
+import { EnviromentContext } from '../../contexts/EnviromentContext';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { ContentContainer } from '../components/ContentContainer';
 import { TeamsContainer, Team } from './styles';
 import { FilterLeague } from '../components/FilterLeague';
@@ -8,6 +9,8 @@ import { Footer } from '../components/Footer';
 import { nanoid } from 'nanoid';
 
 export const Teams = () => {
+	const { imagesPath } = useContext(EnviromentContext);
+
 	const [searchTeam, setSearchTeam] = useState('');
 	const teamsData = []; //simbolizando os dados recebidos da api
 
@@ -95,11 +98,17 @@ export const Teams = () => {
 
 							<ul className="cards">
 								<li className="card">
-									<img src="./public/images/cards/yellow-card.svg" alt="cartão amarelo" />
+									<img
+										src={`${imagesPath}/yellow-card.svg`}
+										alt="Cartão amarelo"
+									/>
 									<span> {yellowCards}</span>
 								</li>
 								<li className="card">
-									<img src="./public/images/cards/red-card.svg" alt="cartão vermelho" />
+									<img
+										src={`${imagesPath}/red-card.svg`}
+										alt="Cartão vermelho"
+									/>
 									<span> {redCards}</span>
 								</li>
 							</ul>

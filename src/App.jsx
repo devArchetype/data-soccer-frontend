@@ -3,6 +3,7 @@ import { Router } from './routes/Router';
 import { ThemeProvider } from 'styled-components';
 import { defaultTheme } from './styles/themes/default';
 import { GlobalStyle } from './styles/global';
+import { EnviromentContextProvider } from './contexts/EnviromentContext';
 
 export const App = () => {
 	return (
@@ -10,7 +11,10 @@ export const App = () => {
 			<GlobalStyle />
 
 			<BrowserRouter>
-				<Router />
+				<EnviromentContextProvider>
+
+					<Router />
+				</EnviromentContextProvider>
 			</BrowserRouter>
 		</ThemeProvider>
 	);
