@@ -95,11 +95,11 @@ export const Teams = () => {
 
 							<ul className="cards">
 								<li className="card">
-									<img src="./src/assets/cards/yellow-card.svg" alt="cartão amarelo" />
+									<img src="./public/images/cards/yellow-card.svg" alt="cartão amarelo" />
 									<span> {yellowCards}</span>
 								</li>
 								<li className="card">
-									<img src="./src/assets/cards/red-card.svg" alt="cartão vermelho" />
+									<img src="./public/images/cards/red-card.svg" alt="cartão vermelho" />
 									<span> {redCards}</span>
 								</li>
 							</ul>
@@ -119,10 +119,24 @@ export const Teams = () => {
 		return teamDataContainers;
 	};
 
+	const query = [
+		{
+			label: 'Teste Query',
+			code: `SELECT Time.nome, COUNT(*) AS "Quantas vezes ganhou"
+      FROM Time
+      INNER JOIN Disputa
+      ON Disputa.clube_id_mandante = Time.id_clube
+      WHERE Disputa.gols_mandante > Disputa.gols_visitante
+      AND Time.nome like 'Arsenal FC'
+      GROUP BY Time.nome;`
+		}
+	];
+
 	return (
 		<ContentContainer>
 			<TeamsContainer>
-				<FilterLeague label="Times" />
+				<FilterLeague label="Times" modalCodes={query}/>
+
 				<Input
 					label="Buscar Time:"
 					type="text"

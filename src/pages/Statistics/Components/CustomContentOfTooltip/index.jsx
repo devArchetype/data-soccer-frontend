@@ -88,7 +88,7 @@ export function CustomContentOfTooltip() {
 					<Tooltip content={<CustomTooltip />} />
 					<Legend />
 					<Bar dataKey="gols" barSize={40} fill="#06aa48" />
-					<Bar dataKey="assistencias" barSize={40} fill="#fb0234" />
+					<Bar dataKey="assistencias" barSize={40} fill="#2c3e50" />
 				</BarChart>
 			</ResponsiveContainer>
 		</GraphicContainer>

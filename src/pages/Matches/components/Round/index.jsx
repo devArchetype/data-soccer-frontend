@@ -42,18 +42,18 @@ export const Round = ({ roundNumber, matchesData }) => {
 						<MatchContainer key={id}>
 							<CardsWrap>
 								<Card>
-									<img src="./src/assets/cards/yellow-card.svg" alt="Cartão amarelo" />
+									<img src="./public/images/cards/yellow-card.svg" alt="Cartão amarelo" />
 									<span>{home.yellow_cards}</span>
 								</Card>
 								<Card>
-									<img src="./src/assets/cards/red-card.svg" alt="Cartão vermelho" />
+									<img src="./public/images/cards/red-card.svg" alt="Cartão vermelho" />
 									<span>{home.red_cards}</span>
 								</Card>
 							</CardsWrap>
 
 							<Team isHome={true}>
 								<span>{home.name}</span>
-								<img src="./src/assets/images/datasoccer-logo.svg" alt="Cartão amarelo" />
+								<img src="./public/images/datasoccer-logo.svg" alt="Cartão amarelo" />
 							</Team>
 
 							<ScoreBoardWrap>
@@ -68,16 +68,16 @@ export const Round = ({ roundNumber, matchesData }) => {
 
 							<Team isHome={false}>
 								<span>{away.name}</span>
-								<img src="./src/assets/images/datasoccer-logo.svg" alt="Cartão amarelo" />
+								<img src="./public/images/datasoccer-logo.svg" alt="Cartão amarelo" />
 							</Team>
 
 							<CardsWrap>
 								<Card>
-									<img src="./src/assets/cards/yellow-card.svg" alt="Cartão amarelo" />
+									<img src="./public/images/cards/yellow-card.svg" alt="Cartão amarelo" />
 									<span>{away.yellow_cards}</span>
 								</Card>
 								<Card>
-									<img src="./src/assets/cards/red-card.svg" alt="Cartão vermelho" />
+									<img src="./public/images/cards/red-card.svg" alt="Cartão vermelho" />
 									<span>{away.red_cards}</span>
 								</Card>
 							</CardsWrap>

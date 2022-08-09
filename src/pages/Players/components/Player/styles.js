@@ -12,27 +12,12 @@ export const PlayerContainer = styled.li `
   background-color: ${(props) => props.theme['gray-100']};
 `;
 
-export const PlayerContainerHeader = styled.div `
+export const PlayerName = styled.div `
   width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
   font-size: 1rem;
   line-height: 100%;
   font-weight: 500;
   color: ${(props) => props.theme['green-300']};
-
-  span {
-    width: 30px;
-    height: 30px;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    font-size: 1.1rem;
-    color: ${(props) => props.theme['blue-700']};
-    border-radius: 50%;
-    background-color: ${(props) => props.theme['gray-200']};
-  }
 `;
 
 const InlineWrapper = styled.div `

@@ -8,10 +8,23 @@ import roundsData from './data/rounds-data.json';
 import { Input } from '../../components/Input';
 
 export const Matches = () => {
+	const query = [
+		{
+			label: 'Teste Query',
+			code: `SELECT Time.nome, COUNT(*) AS "Quantas vezes ganhou"
+      FROM Time
+      INNER JOIN Disputa
+      ON Disputa.clube_id_mandante = Time.id_clube
+      WHERE Disputa.gols_mandante > Disputa.gols_visitante
+      AND Time.nome like 'Arsenal FC'
+      GROUP BY Time.nome;`
+		}
+	];
+
 	return (
 		<ContentContainer>
 			<PageContainer>
-				<FilterLeague label="Partidas" />
+				<FilterLeague label="Partidas" modalCodes={query}/>
 
 				<Input
 					type='number'

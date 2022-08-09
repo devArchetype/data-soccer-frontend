@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { FilterContainer } from './style';
+import { FilterContainer, ContainerHeader } from './style';
 import { useMediaQuery } from '../../../hooks/useMediaQuery';
+import { Modal } from '../../../components/Modal';
 
 // * preenchimento padrao de alguns campos ate fazer a conexao com a api
 
-export const FilterLeague = ({ label }) => {
+export const FilterLeague = ({ label, modalCodes }) => {
 	const [filterIsResponsive, setFilterIsResponsive] = useState(true);
 	const isResponsive = useMediaQuery('(min-width: 360px)');
 
@@ -15,7 +16,11 @@ export const FilterLeague = ({ label }) => {
 	return (
 		<FilterContainer responsive={filterIsResponsive.toString()}>
 			<div className="container-context">
-				<h1>{label}</h1>
+				<ContainerHeader>
+					<h1>{label}</h1>
+
+					<Modal codes={modalCodes} />
+				</ContainerHeader>
 
 				<select>
 					<option value="">Premier Legue 2019/2020</option>

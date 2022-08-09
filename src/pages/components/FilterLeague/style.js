@@ -14,11 +14,6 @@ export const FilterContainer = styled.section`
     flex-direction: column;
     justify-content: space-evenly;
 
-    h1 {
-      font-size: clamp(1vw, 1.2rem, 7vw);
-      color: ${(props) => props.theme['green-300']};
-    }
-
     select {
       cursor: pointer;
       outline: 0;
@@ -69,4 +64,15 @@ export const FilterContainer = styled.section`
       display: none;
     }
   `};
+`;
+
+export const ContainerHeader = styled.div `
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    h1 {
+      font-size: clamp(1vw, 1.2rem, 7vw);
+      color: ${(props) => props.theme['green-300']};
+    }
 `;

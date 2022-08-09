@@ -1,6 +1,6 @@
 import {
 	PlayerContainer,
-	PlayerContainerHeader,
+	PlayerName,
 	ImageContainer,
 	PlayerPlaceholder,
 	CardsWrap,
@@ -12,22 +12,22 @@ import {
 export const Player = () => {
 	return (
 		<PlayerContainer>
-			<PlayerContainerHeader>
-				{'Cristiano Ronaldo'} <span>{'7'}</span>
-			</PlayerContainerHeader>
+			<PlayerName>
+				{'Cristiano Ronaldo'}
+			</PlayerName>
 
 			<ImageContainer>
 				<PlayerPlaceholder>
-					<img src="./src/assets/images/player-placeholder.svg" alt="" />
+					<img src="./public/images/player-placeholder.svg" alt="" />
 				</PlayerPlaceholder>
 
 				<CardsWrap>
 					<Card>
-						<img src="./src/assets/cards/yellow-card.svg" alt="Cartão amarelo" />
+						<img src="./public/images/cards/yellow-card.svg" alt="Cartão amarelo" />
 						<span>{'1'}</span>
 					</Card>
 					<Card>
-						<img src="./src/assets/cards/red-card.svg" alt="Cartão vermelho" />
+						<img src="./public/images/cards/red-card.svg" alt="Cartão vermelho" />
 						<span>{'0'}</span>
 					</Card>
 				</CardsWrap>

@@ -14,11 +14,11 @@ export const Logo = () => {
 				<LetterO>o</LetterO>
 
 				<AnimationBall>
-					<img src="./src/assets/images/logo-ball.png" alt="" />
+					<img src="./public/images/logo-ball.png" alt="" />
 				</AnimationBall>
 
 				<AnimationGround>
-					<img src="./src/assets/images/logo-ground.png" alt="" />
+					<img src="./public/images/logo-ground.png" alt="" />
 				</AnimationGround>
 			</AnimationContainer>
       ccer

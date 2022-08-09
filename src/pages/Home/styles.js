@@ -4,7 +4,7 @@ export const BackgroundImageContainer = styled.div`
   position: absolute;
   z-index: 1;
   inset: 0;
-  background-image: url(./src/assets/images/home-background.jpg);
+  background-image: url(./public/images/home-background.jpg);
   background-position: center center;
   background-position-x: center;
   background-attachment: fixed;
