@@ -4,10 +4,27 @@ import { FilterLeague } from '../components/FilterLeague';
 import { Footer } from '../components/Footer';
 import { Round } from './components/Round';
 
-import roundsData from './data/rounds-data.json';
 import { Input } from '../../components/Input';
+import { useEffect, useState } from 'react';
 
 export const Matches = () => {
+	const [roundsData, setRoundsData] = useState([]);
+	const [roundFilter, setRoundFilter] = useState('');
+
+	const filteredRound = roundFilter
+		? roundsData.filter((round) => round[0] === roundFilter)
+		: [];
+
+	useEffect(() => {
+		fetch('https://datasoccer.000webhostapp.com/getMatches.php')
+			.then((response) => response.json())
+			.then((data) => setRoundsData(Object.entries(data.data)));
+	}, []);
+
+	const handleFilterInput = (event) => {
+		setRoundFilter(event.target.value);
+	};
+
 	const query = [
 		{
 			label: 'Teste Query',
@@ -25,7 +42,6 @@ export const Matches = () => {
 		<ContentContainer>
 			<PageContainer>
 				<FilterLeague label="Partidas" modalCodes={query}/>
-
 				<Input
 					type='number'
 					placeholder='00'
@@ -33,13 +49,18 @@ export const Matches = () => {
 					srLabel={false}
 					min={1}
 					max={38}
+					onChange={handleFilterInput}
+					value={roundFilter}
 				/>
 
 				<MatchesContainer>
-					{roundsData.map(({ number, matches}) => {
-						return <Round key={number} roundNumber={1} matchesData={matches} />;
-					})}
-
+					{roundFilter
+						? filteredRound.map(([id, data]) => {
+							return <Round key={id} roundNumber={id} matchesData={data}/>;
+						})
+						: roundsData.map(([id, data]) => {
+							return <Round key={id} roundNumber={id} matchesData={data}/>;
+						})}
 				</MatchesContainer>
 				<Footer />
 			</PageContainer>

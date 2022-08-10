@@ -35,7 +35,7 @@ export const MatchContainer = styled.li `
   min-width: 700px;
   display: inline-flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.1rem;
   font-size: 1rem;
@@ -52,7 +52,9 @@ const InlineWrapper = styled.div `
 `;
 
 export const CardsWrap = styled(InlineWrapper) `
-  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+  gap: 1rem;
 `;
 
 export const Card = styled(InlineWrapper) `
@@ -64,7 +66,9 @@ export const Card = styled(InlineWrapper) `
 `;
 
 export const Team = styled (InlineWrapper) `
+  flex: 1;
   flex-direction: ${(props) => props.isHome ? 'row' : 'row-reverse'};
+  justify-content: flex-end;
   gap: 0.4rem;
   font-size: 1rem;
   line-height: 0;
@@ -77,6 +81,7 @@ export const Team = styled (InlineWrapper) `
 `;
 
 export const ScoreBoardWrap = styled.div `
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,6 +90,7 @@ export const ScoreBoardWrap = styled.div `
   span {
     line-height: 100%;
     font-size: 0.8rem;
+    text-align: center;
     color: ${(props) => props.theme['gray-600']};
   }
 `;
