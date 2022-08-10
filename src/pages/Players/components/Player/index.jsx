@@ -11,13 +11,41 @@ import {
 	PlayerData
 } from './styles';
 
-export const Player = () => {
+export const Player = ({ playerData }) => {
 	const { imagesPath } = useContext(EnviromentContext);
+
+	const {
+		id_jogador,
+		nome,
+		idade,
+		numero_camisa,
+		assistencias,
+		gols,
+		cartoes_amarelos,
+		cartoes_vermelhos,
+		nacionalidade,
+		penaltis_defendidos,
+		posicao,
+		clube_id
+	} = playerData;
+
+	const getPlayerPortuguesePosition = (englishPosition) => {
+		const positionsTranslations = {
+			'midfielder': 'Meio campo',
+			'forward': 'Atacante',
+			'defender': 'Defensor',
+			'goalkeeper': 'Goleiro',
+		};
+
+		return englishPosition
+			? positionsTranslations[englishPosition.toLowerCase()]
+			: englishPosition;
+	};
 
 	return (
 		<PlayerContainer>
 			<PlayerName>
-				{'Cristiano Ronaldo'}
+				{nome}
 			</PlayerName>
 
 			<ImageContainer>
@@ -31,22 +59,28 @@ export const Player = () => {
 				<CardsWrap>
 					<Card>
 						<img src={`${imagesPath}/yellow-card.svg`} alt="Cartão amarelo" />
-						<span>{'1'}</span>
+						<span>{cartoes_amarelos}</span>
 					</Card>
 					<Card>
 						<img src={`${imagesPath}/red-card.svg`} alt="Cartão vermelho" />
-						<span>{'0'}</span>
+						<span>{cartoes_vermelhos}</span>
 					</Card>
 				</CardsWrap>
 			</ImageContainer>
 
 			<PlayerDataList>
-				<PlayerData>Nacionalidade: <span>{'Portugal'}</span></PlayerData>
-				<PlayerData>Idade: <span>{'37'}</span></PlayerData>
-				<PlayerData>Posição: <span>{'Atacante'}</span></PlayerData>
-				<PlayerData>Gols: <span>{'15'}</span></PlayerData>
-				<PlayerData>Assistências: <span>{'8'}</span></PlayerData>
-				<PlayerData>Pênaltis defendidos: <span>{'0'}</span></PlayerData>
+				<PlayerData>Nacionalidade: <span>{nacionalidade}</span></PlayerData>
+				<PlayerData>Idade: <span>{idade}</span></PlayerData>
+				<PlayerData>
+          Posição: <span>{getPlayerPortuguesePosition(posicao)}</span>
+				</PlayerData>
+				<PlayerData>Gols: <span>{gols}</span></PlayerData>
+				<PlayerData>Assistências: <span>{assistencias}</span></PlayerData>
+				{penaltis_defendidos !== 0 || (
+					<PlayerData>
+            Pênaltis defendidos: <span>{penaltis_defendidos}</span>
+					</PlayerData>
+				)}
 			</PlayerDataList>
 		</PlayerContainer>
 	);
