@@ -42,12 +42,16 @@ export const Club = styled.tr`
   }
 
   .soccer-team div {
+    max-width: 290px;
     display: flex;
-    justify-content: center;
     align-items: center;
 
     img {
       width: 2.5rem;
+    }
+
+    span {
+      padding-left: 1rem;
     }
   }
 

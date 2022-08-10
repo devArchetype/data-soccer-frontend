@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { FilterLeague } from '../components/FilterLeague';
 import { ContentContainer } from '../components/ContentContainer';
 import { Footer } from '../components/Footer';
@@ -5,69 +6,54 @@ import { RankingContainer, Club, RankingPageContainer } from './styles';
 import { nanoid } from 'nanoid';
 
 export const Ranking = () => {
-	const teamsData = []; //simbolizando os dados recebidos da api
+	const [classification, setClassification] = useState([]);
 
-	const fillTable = (size) => {
-		//dados ilustrativos - este trecho sera excluido
-		for (let i = 1; i <= size; i++) {
-			teamsData.push({
-				position: 1,
-				club: 'Tottenham',
-				shield: 'https://cdn.footystats.org/img/teams/england-tottenham-hotspur-fc.png',
-				points: 67,
-				matches: 38,
-				victories: 23,
-				draws: 0,
-				defeats: 15,
-				goalsInFavor: 89,
-				goalsAgainst: 56,
-				goalDifference: 33,
-				yellowCards: 45,
-				redCards: 5,
-			});
-		}
+	useEffect(() => {
+		fetch('https://datasoccer.000webhostapp.com/getTable.php')
+			.then(response => response.json())
+			.then(response => handleMenuIsVisibility(response));
+	}, []);
 
-		const teamDataContainers = teamsData.map((team) => {
+	const handleMenuIsVisibility = async (response) => {
+		const data = (await response).data;
+		setClassification(Object.entries(data));
+	};
+
+	const fillTable = () => {
+		let classificationData = classification.sort(function(a, b) {
+			if(a[1].Pts > b[1].Pts) return -1;
+			else return true;
+		});
+
+		classificationData = classificationData.map(([, team], index) => {
 			const {
-				position,
-				club,
-				shield,
-				points,
-				matches,
-				victories,
-				draws,
-				defeats,
-				goalsInFavor,
-				goalsAgainst,
-				goalDifference,
-				yellowCards,
-				redCards
+				Pts, J, V, E, GP, GC, SG, CA, CV, Escudo, Nome,
 			} = team;
 
 			return (
 				<Club key={nanoid()}>
-					<td className="position" key={nanoid()}>{position}º</td>
+					<td className="position" key={nanoid()}>{index + 1}º</td>
 					<td className="soccer-team" key={nanoid()}>
 						<div>
-							<img src={shield} alt="Logo do clube"/>
-							<span>{club}</span>
+							<img src={Escudo || 'https://www.pngfind.com/pngs/m/14-147206_open-escudos-em-branco-vazio-png-transparent-png.png'} alt="Logo do clube"/>
+							<span>{Nome}</span>
 						</div>
 					</td>
-					<td className="points" key={nanoid()}>{points}</td>
-					<td key={nanoid()}>{matches}</td>
-					<td key={nanoid()}>{victories}</td>
-					<td key={nanoid()}>{draws}</td>
-					<td key={nanoid()}>{defeats}</td>
-					<td key={nanoid()}>{goalsInFavor}</td>
-					<td key={nanoid()}>{goalsAgainst}</td>
-					<td key={nanoid()}>{goalDifference}</td>
-					<td key={nanoid()}>{yellowCards}</td>
-					<td key={nanoid()}>{redCards}</td>
+					<td className="points" key={nanoid()}>{Pts}</td>
+					<td key={nanoid()}>{J}</td>
+					<td key={nanoid()}>{V}</td>
+					<td key={nanoid()}>{E}</td>
+					<td key={nanoid()}>{J - V - E}</td>
+					<td key={nanoid()}>{GP}</td>
+					<td key={nanoid()}>{GC}</td>
+					<td key={nanoid()}>{GP - GC}</td>
+					<td key={nanoid()}>{CA}</td>
+					<td key={nanoid()}>{CV}</td>
 				</Club>
 			);
 		});
 
-		return teamDataContainers;
+		return classificationData;
 	};
 
 	const query = [
@@ -106,7 +92,7 @@ export const Ranking = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{fillTable(20) /* -> seria teamsData.length*/ }
+							{fillTable()}
 						</tbody>
 					</table>
 				</RankingContainer>
