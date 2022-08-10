@@ -7,8 +7,17 @@ import {
 import { FilterLeague } from '../components/FilterLeague';
 import { Player } from './components/Player';
 import { Footer } from '../components/Footer';
+import { useEffect, useState } from 'react';
 
 export const Players = () => {
+	const[playersData, setPlayersData] = useState([]);
+
+	useEffect(() => {
+		fetch('https://datasoccer.000webhostapp.com/getPlayers.php?')
+			.then(response => response.json())
+			.then(data => setPlayersData(Object.entries(data.data)));
+	}, []);
+
 	const query = [
 		{
 			label: 'Teste Query',
@@ -33,20 +42,9 @@ export const Players = () => {
 					</TeamContainerHeader>
 
 					<PlayersList >
-						{/* map */}
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
-						<Player />
+						{playersData && playersData.map(([id, data]) => {
+							return <Player key={id} playerData={data} />;
+						})}
 					</PlayersList>
 				</div>
 
