@@ -51,7 +51,7 @@ export const Modal = ({ codes }) => {
 										showLineNumbers={true}
 										showInlineLineNumbers={false}
 										// wrapLongLines={true}
-										lineProps={{ style: { flexWrap: 'wrap' } }}
+										lineProps={{ style: { flexWrap: 'wrap', } }}
 									>
 										{code}
 									</SyntaxHighlighter>

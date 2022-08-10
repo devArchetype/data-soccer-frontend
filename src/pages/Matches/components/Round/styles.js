@@ -12,6 +12,7 @@ export const RoundHeader = styled.div `
     align-items: center;
     margin-bottom: 0.2rem;
     padding: 0.5rem;
+    cursor: pointer;
     border-radius: ${(props) => props.isCollapsed ? '15px 15px 0 0' : '15px'};
     background-color: ${(props) => props.theme['gray-100']};
 

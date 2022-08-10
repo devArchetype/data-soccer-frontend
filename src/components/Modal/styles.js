@@ -20,12 +20,14 @@ export const ContentBox = styled.div `
   width: 100%;
   max-width: 900px;
   min-width: 250px;
+  max-height: 620px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 0.8rem;
   font-size: 1rem;
   border-radius: 15px;
+  overflow-y: auto;
   background-color: ${props => props.theme['gray-500']};
 
 `;

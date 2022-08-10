@@ -8,34 +8,38 @@ import { Footer } from '../components/Footer';
 export const Statistics = () => {
 	const query = [
 		{
-			label: 'Teste Query',
-			code: `SELECT Time.nome, COUNT(*) AS "Quantas vezes ganhou"
-      FROM Time
-      INNER JOIN Disputa
-      ON Disputa.clube_id_mandante = Time.id_clube
-      WHERE Disputa.gols_mandante > Disputa.gols_visitante
-      AND Time.nome like 'Arsenal FC'
-      GROUP BY Time.nome;`
+			label: 'Total de gols e assistências por posição.',
+			code: `SELECT
+      SUM(assistencias) AS assistencia,
+      SUM(gols) AS gols
+    FROM jogador
+    WHERE posicao = 'Midfielder';
+
+    -- Demais posições: 'Goalkeeper', 'Forward', 'Defender'`
 		},
 		{
-			label: 'Teste Query 2',
-			code: `SELECT Time.nome, COUNT(*) AS "Quantas vezes ganhou"
-      FROM Time
-      INNER JOIN Disputa
-      ON Disputa.clube_id_mandante = Time.id_clube
-      WHERE Disputa.gols_mandante > Disputa.gols_visitante
-      AND Time.nome like 'Arsenal FC'
-      GROUP BY Time.nome;`
+			label: 'Principais nacionalidades dos jogadores',
+			code: `SELECT
+      nacionalidade,
+      SUM(gols) AS gols
+    FROM jogador
+    GROUP BY nacionalidade
+    ORDER BY gols DESC
+    LIMIT 5;`
 		},
 		{
-			label: 'Teste Query 3',
-			code: `SELECT Time.nome, COUNT(*) AS "Quantas vezes ganhou"
-      FROM Time
-      INNER JOIN Disputa
-      ON Disputa.clube_id_mandante = Time.id_clube
-      WHERE Disputa.gols_mandante > Disputa.gols_visitante
-      AND Time.nome like 'Arsenal FC'
-      GROUP BY Time.nome;`
+			label: 'Dados sobre mandantes vs visitantes.',
+			code: `SELECT
+      gols_mandante,
+      gols_visitante
+    FROM disputa;
+
+    SELECT
+      SUM(cartao_vermelho_mandante),
+      SUM(cartao_vermelho_visitante),
+      SUM(cartao_amarelo_mandante),
+      SUM(cartao_amarelo_visitante)
+    FROM disputa;`
 		}
 	];
 	return (

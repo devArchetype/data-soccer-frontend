@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { EnviromentContext } from '../../../../contexts/EnviromentContext';
 import {
 	RoundContainer,
@@ -14,18 +14,21 @@ import {
 import { Button } from '../../../../components/Button';
 import { CaretDown, CaretUp } from 'phosphor-react';
 
-export const Round = ({ roundNumber, matchesData }) => {
+export const Round = ({ roundNumber, matchesData, index }) => {
 	const { imagesPath } = useContext(EnviromentContext);
-
-	const [matchesListCollapse, setMatchesListCollapse] = useState(false);
+	const [matchesListCollapse, setMatchesListCollapse] = useState(true);
 
 	const handleMatchesListCollapse = () => {
 		setMatchesListCollapse((prevState) => !prevState);
 	};
 
+	useEffect(() => {
+		index === 0 || setMatchesListCollapse(false);
+	}, []);
+
 	return (
 		<RoundContainer>
-			<RoundHeader isCollapsed={matchesListCollapse}>
+			<RoundHeader isCollapsed={matchesListCollapse} onClick={handleMatchesListCollapse}>
 				<h3>Rodada {roundNumber}</h3>
 
 				<Button

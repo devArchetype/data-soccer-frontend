@@ -89,14 +89,23 @@ export const Teams = () => {
 
 	const query = [
 		{
-			label: 'Teste Query',
-			code: `SELECT Time.nome, COUNT(*) AS "Quantas vezes ganhou"
-      FROM Time
-      INNER JOIN Disputa
-      ON Disputa.clube_id_mandante = Time.id_clube
-      WHERE Disputa.gols_mandante > Disputa.gols_visitante
-      AND Time.nome like 'Arsenal FC'
-      GROUP BY Time.nome;`
+			label: 'Resultos finais de cada time.',
+			code: `SELECT
+      disputa.clube_id_mandante,
+      disputa.clube_id_visitante,
+      disputa.cartao_vermelho_mandante,
+      disputa.cartao_vermelho_visitante,
+      disputa.cartao_amarelo_mandante,
+      disputa.cartao_amarelo_visitante,
+      disputa.gols_mandante,
+      disputa.gols_visitante,
+      time1.nome AS nome_mandante,
+      time2.nome AS nome_visitante,
+      time1.escudo AS escudo_mandante,
+      time2.escudo AS escudo_visitante
+    FROM disputa
+      INNER JOIN time time1 ON time1.id_clube = disputa.clube_id_mandante
+      INNER JOIN time time2 ON time2.id_clube = disputa.clube_id_visitante;`
 		}
 	];
 
