@@ -31,7 +31,7 @@ export const Teams = () => {
 			else return true;
 		});
 
-		classificationData = classificationData.map(([, team]) => {
+		classificationData = classificationData.map(([id, team]) => {
 			const {
 				J, V, E, GP, CA, CV, Escudo, Nome,
 			} = team;
@@ -74,8 +74,9 @@ export const Teams = () => {
 					</div>
 
 					<div className="cast">
-						<img src={Escudo || 'https://w7.pngwing.com/pngs/542/936/png-transparent-white-line-black-m-line.png'} alt="Logo do Time" />
-						<Link to='/jogadores'>
+						<img
+							src={Escudo || 'https://w7.pngwing.com/pngs/542/936/png-transparent-white-line-black-m-line.png'} alt={`Logo do ${Nome}`} />
+						<Link to={`/times/${id}/${Nome.replace(' ', '_')}/jogadores`}>
 							<p>Ver Elenco</p>
 						</Link>
 					</div>

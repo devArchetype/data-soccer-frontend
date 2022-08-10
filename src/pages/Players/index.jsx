@@ -8,15 +8,21 @@ import { FilterLeague } from '../components/FilterLeague';
 import { Player } from './components/Player';
 import { Footer } from '../components/Footer';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 export const Players = () => {
-	const[playersData, setPlayersData] = useState([]);
+	const { teamID, teamName } = useParams();
+	const[allPlayersData, setAllPlayersData] = useState([]);
 
 	useEffect(() => {
 		fetch('https://datasoccer.000webhostapp.com/getPlayers.php?')
 			.then(response => response.json())
-			.then(data => setPlayersData(Object.entries(data.data)));
+			.then(data => setAllPlayersData(Object.entries(data.data)));
 	}, []);
+
+	const filteredPlayersData = allPlayersData.filter((playerData) => {
+		return playerData[1]['clube_id'] === teamID;
+	});
 
 	const query = [
 		{
@@ -38,11 +44,11 @@ export const Players = () => {
 
 				<div>
 					<TeamContainerHeader >
-						<h3>DataSoccer F.C</h3>
+						<h3>{teamName.replace('_', ' ')}</h3>
 					</TeamContainerHeader>
 
 					<PlayersList >
-						{playersData && playersData.map(([id, data]) => {
+						{filteredPlayersData.map(([id, data]) => {
 							return <Player key={id} playerData={data} />;
 						})}
 					</PlayersList>

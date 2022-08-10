@@ -15,10 +15,8 @@ export const Player = ({ playerData }) => {
 	const { imagesPath } = useContext(EnviromentContext);
 
 	const {
-		id_jogador,
 		nome,
 		idade,
-		numero_camisa,
 		assistencias,
 		gols,
 		cartoes_amarelos,
@@ -26,7 +24,6 @@ export const Player = ({ playerData }) => {
 		nacionalidade,
 		penaltis_defendidos,
 		posicao,
-		clube_id
 	} = playerData;
 
 	const getPlayerPortuguesePosition = (englishPosition) => {
