@@ -13,7 +13,7 @@ export const Router = () => {
 			<Route path='/' element={<DefaultLayout />}>
 				<Route path='/' element={<Home />} />
 				<Route path='/times' element={<Teams />} />
-				<Route path='/jogadores' element={<Players />} />
+				<Route path='/times/:teamID/:teamName/jogadores' element={<Players />} />
 				<Route path='/partidas' element={<Matches />} />
 				<Route path='/classificacao' element={<Ranking />} />
 				<Route path='/estatisticas' element={<Statistics />} />
