@@ -14,6 +14,7 @@ export const RoundHeader = styled.div `
     padding: 0.5rem;
     border-radius: ${(props) => props.isCollapsed ? '15px 15px 0 0' : '15px'};
     background-color: ${(props) => props.theme['gray-100']};
+
     h3 {
       font-size: 1rem;
       font-weight: 600;
@@ -65,13 +66,12 @@ export const Card = styled(InlineWrapper) `
   color: ${(props) => props.theme['gray-600']};
 `;
 
-export const Team = styled (InlineWrapper) `
-  flex: 1;
+export const Team = styled(InlineWrapper) `
+  flex: 2;
   flex-direction: ${(props) => props.isHome ? 'row' : 'row-reverse'};
   justify-content: flex-end;
-  gap: 0.4rem;
-  font-size: 1rem;
-  line-height: 0;
+  gap: 0.3rem;
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
   color: ${(props) => props.theme['blue-700']};
 
   img {
@@ -81,7 +81,7 @@ export const Team = styled (InlineWrapper) `
 `;
 
 export const ScoreBoardWrap = styled.div `
-  flex: 1;
+  flex: 1.5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,4 +108,3 @@ export const ScoreBoard = styled.div `
     color: ${(props) => props.theme['blue-700']};
   };
 `;
-

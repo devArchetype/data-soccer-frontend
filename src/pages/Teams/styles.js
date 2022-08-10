@@ -80,3 +80,4 @@ export const Team = styled.div`
     }
   }
 `;
+

@@ -23,6 +23,11 @@ export const TeamContainerHeader = styled.div `
       font-weight: 600;
       color: ${(props) => props.theme['gray-600']};
     }
+
+    a {
+      font-size: 1rem;
+      color: ${(props) => props.theme['blue-700']};
+    }
 `;
 
 export const PlayersList = styled.ul `

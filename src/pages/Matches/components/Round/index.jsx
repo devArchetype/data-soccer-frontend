@@ -17,7 +17,7 @@ import { CaretDown, CaretUp } from 'phosphor-react';
 export const Round = ({ roundNumber, matchesData }) => {
 	const { imagesPath } = useContext(EnviromentContext);
 
-	const [matchesListCollapse, setMatchesListCollapse] = useState(true);
+	const [matchesListCollapse, setMatchesListCollapse] = useState(false);
 
 	const handleMatchesListCollapse = () => {
 		setMatchesListCollapse((prevState) => !prevState);

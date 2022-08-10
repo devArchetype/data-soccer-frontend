@@ -8,21 +8,17 @@ import { FilterLeague } from '../components/FilterLeague';
 import { Player } from './components/Player';
 import { Footer } from '../components/Footer';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export const Players = () => {
 	const { teamID, teamName } = useParams();
 	const[allPlayersData, setAllPlayersData] = useState([]);
 
 	useEffect(() => {
-		fetch('https://datasoccer.000webhostapp.com/getPlayers.php?')
+		fetch(`https://datasoccer.000webhostapp.com/getPlayers.php?id_team=${teamID}`)
 			.then(response => response.json())
 			.then(data => setAllPlayersData(Object.entries(data.data)));
 	}, []);
-
-	const filteredPlayersData = allPlayersData.filter((playerData) => {
-		return playerData[1]['clube_id'] === teamID;
-	});
 
 	const query = [
 		{
@@ -41,14 +37,14 @@ export const Players = () => {
 		<ContentContainer>
 			<PageContainer>
 				<FilterLeague label="Jogadores" modalCodes={query} />
-
 				<div>
 					<TeamContainerHeader >
 						<h3>{teamName.replace('_', ' ')}</h3>
+						<Link to='/times'>Times</Link>
 					</TeamContainerHeader>
 
 					<PlayersList >
-						{filteredPlayersData.map(([id, data]) => {
+						{allPlayersData.map(([id, data]) => {
 							return <Player key={id} playerData={data} />;
 						})}
 					</PlayersList>
