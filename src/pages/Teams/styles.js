@@ -11,7 +11,7 @@ export const TeamsContainer = styled.main`
   .teams-presentation {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 1.5rem;
   }
@@ -19,6 +19,7 @@ export const TeamsContainer = styled.main`
 
 export const Team = styled.div`
   min-width: 23.5%;
+  min-height: 157px;
   font-size: 0.75rem;
   font-weight: 600;
   background-color: ${(props) => props.theme['gray-100']};
@@ -26,7 +27,7 @@ export const Team = styled.div`
   padding: 1rem;
   display: flex;
   justify-content: space-between;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 
   .information {
     display: flex;
@@ -34,14 +35,14 @@ export const Team = styled.div`
     justify-content: space-between;
 
     h2 {
-      font-size: 1.4rem;
-      margin-bottom: .5rem;
+      max-width: 12rem;
+      font-size: 1rem;
       color: ${(props) => props.theme['green-300']};
     }
 
     .stats {
       display: flex;
-      gap: 1.2rem;
+      gap: 1rem;
 
       ul {
         list-style: none;

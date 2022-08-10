@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { EnviromentContext } from '../../contexts/EnviromentContext';
 import { Link } from 'react-router-dom';
 import { ContentContainer } from '../components/ContentContainer';
@@ -12,88 +12,46 @@ export const Teams = () => {
 	const { imagesPath } = useContext(EnviromentContext);
 
 	const [searchTeam, setSearchTeam] = useState('');
-	const teamsData = []; //simbolizando os dados recebidos da api
+	const [teams, setTeams] = useState([]);
 
-	const fillTeams = (size) => {
-		//dados ilustrativos - este trecho sera excluido
-		for (let i = 1; i <= size; i++) {
-			teamsData.push({
-				position: 1,
-				club: 'Tottenham',
-				shield: 'https://cdn.footystats.org/img/teams/england-tottenham-hotspur-fc.png',
-				points: 67,
-				matches: 38,
-				victories: 23,
-				draws: 0,
-				defeats: 15,
-				goalsInFavor: 89,
-				goalsAgainst: 56,
-				goalDifference: 33,
-				yellowCards: 45,
-				redCards: 5,
-			});
-		}
+	useEffect(() => {
+		fetch('https://datasoccer.000webhostapp.com/getTable.php')
+			.then(response => response.json())
+			.then(response => handleData(response));
+	}, []);
 
-		teamsData.push({
-			position: 1,
-			club: 'São Paulo',
-			shield: 'https://cdn.footystats.org/img/teams/england-tottenham-hotspur-fc.png',
-			points: 67,
-			matches: 38,
-			victories: 23,
-			draws: 0,
-			defeats: 15,
-			goalsInFavor: 89,
-			goalsAgainst: 56,
-			goalDifference: 33,
-			yellowCards: 45,
-			redCards: 5,
+	const handleData = async (response) => {
+		const data = (await response).data;
+		setTeams(Object.entries(data));
+	};
+
+	const fillTeams = () => {
+		let classificationData = teams.sort(function(a, b) {
+			if(a[1].Nome < b[1].Nome) return -1;
+			else return true;
 		});
 
-		teamsData.push({
-			position: 1,
-			club: 'São Caetano',
-			shield: 'https://cdn.footystats.org/img/teams/england-tottenham-hotspur-fc.png',
-			points: 67,
-			matches: 38,
-			victories: 23,
-			draws: 0,
-			defeats: 15,
-			goalsInFavor: 89,
-			goalsAgainst: 56,
-			goalDifference: 33,
-			yellowCards: 45,
-			redCards: 5,
-		});
-
-		const teamDataContainers = teamsData.map((teamData) => {
+		classificationData = classificationData.map(([, team]) => {
 			const {
-				club,
-				shield,
-				victories,
-				draws,
-				defeats,
-				goalsInFavor,
-				yellowCards,
-				redCards
-			} = teamData;
+				J, V, E, GP, CA, CV, Escudo, Nome,
+			} = team;
 
 			//nao renderiza componente se o nome nao bater
-			const clubName = club.toUpperCase();
+			const clubName = Nome.toUpperCase();
 			const wantedClub = searchTeam.toUpperCase();
 			if(!clubName.includes(wantedClub)) return;
 
 			return (
 				<Team key={nanoid()}>
 					<div className="information">
-						<h2>{club}</h2>
+						<h2>{Nome}</h2>
 
 						<div className="stats">
 							<ul>
-								<li>Vitórias: <span>{victories}</span></li>
-								<li>Empates: <span>{draws}</span></li>
-								<li>Derrotas: <span>{defeats}</span></li>
-								<li>Total de Gols: <span>{goalsInFavor}</span></li>
+								<li>Vitórias: <span>{V}</span></li>
+								<li>Empates: <span>{E}</span></li>
+								<li>Derrotas: <span>{J - V - E}</span></li>
+								<li>Total de Gols: <span>{GP}</span></li>
 							</ul>
 
 							<ul className="cards">
@@ -102,21 +60,21 @@ export const Teams = () => {
 										src={`${imagesPath}/yellow-card.svg`}
 										alt="Cartão amarelo"
 									/>
-									<span> {yellowCards}</span>
+									<span> {CA}</span>
 								</li>
 								<li className="card">
 									<img
 										src={`${imagesPath}/red-card.svg`}
 										alt="Cartão vermelho"
 									/>
-									<span> {redCards}</span>
+									<span> {CV}</span>
 								</li>
 							</ul>
 						</div>
 					</div>
 
 					<div className="cast">
-						<img src={shield} alt="Logo do Time" />
+						<img src={Escudo || 'https://w7.pngwing.com/pngs/542/936/png-transparent-white-line-black-m-line.png'} alt="Logo do Time" />
 						<Link to='/jogadores'>
 							<p>Ver Elenco</p>
 						</Link>
@@ -125,7 +83,7 @@ export const Teams = () => {
 			);
 		});
 
-		return teamDataContainers;
+		return classificationData;
 	};
 
 	const query = [

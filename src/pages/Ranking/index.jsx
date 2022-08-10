@@ -11,10 +11,10 @@ export const Ranking = () => {
 	useEffect(() => {
 		fetch('https://datasoccer.000webhostapp.com/getTable.php')
 			.then(response => response.json())
-			.then(response => handleMenuIsVisibility(response));
+			.then(response => handleData(response));
 	}, []);
 
-	const handleMenuIsVisibility = async (response) => {
+	const handleData = async (response) => {
 		const data = (await response).data;
 		setClassification(Object.entries(data));
 	};
@@ -35,7 +35,7 @@ export const Ranking = () => {
 					<td className="position" key={nanoid()}>{index + 1}º</td>
 					<td className="soccer-team" key={nanoid()}>
 						<div>
-							<img src={Escudo || 'https://www.pngfind.com/pngs/m/14-147206_open-escudos-em-branco-vazio-png-transparent-png.png'} alt="Logo do clube"/>
+							<img src={Escudo || 'https://w7.pngwing.com/pngs/542/936/png-transparent-white-line-black-m-line.png'} alt="Logo do clube"/>
 							<span>{Nome}</span>
 						</div>
 					</td>
