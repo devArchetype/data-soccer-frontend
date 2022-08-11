@@ -22,7 +22,7 @@ export const TeamContainerHeader = styled.div `
     h3 {
       font-size: 1rem;
       font-weight: 600;
-      color: ${(props) => props.theme['gray-600']};
+      color: ${(props) => props.theme['blue-700']};
     }
 
     a {

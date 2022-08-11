@@ -7,7 +7,7 @@ import { Modal } from '../../../components/Modal';
 
 export const FilterLeague = ({ label, modalCodes }) => {
 	const [filterIsResponsive, setFilterIsResponsive] = useState(true);
-	const isResponsive = useMediaQuery('(min-width: 360px)');
+	const isResponsive = useMediaQuery('(min-width: 480px)');
 
 	useEffect(() => {
 		isResponsive ? setFilterIsResponsive(true) : setFilterIsResponsive(false);

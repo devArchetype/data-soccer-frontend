@@ -48,8 +48,8 @@ export const FilterContainer = styled.section`
 
   ${({ responsive }) => responsive === 'false' && css`
     gap: 1rem;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     overflow: hidden;
 
     .container-context {
