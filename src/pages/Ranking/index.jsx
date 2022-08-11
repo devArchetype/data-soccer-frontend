@@ -21,7 +21,11 @@ export const Ranking = () => {
 
 	const fillTable = () => {
 		let classificationData = classification.sort(function(a, b) {
-			if(a[1].Pts > b[1].Pts) return -1;
+			if(a[1].Pts === b[1].Pts) {
+				if((a[1].GP - a[1].GC) > (b[1].GP - b[1].GC)) return -1;
+				else return true;
+			}
+			else if(a[1].Pts > b[1].Pts) return -1;
 			else return true;
 		});
 

@@ -23,7 +23,7 @@ export const FilterLeague = ({ label, modalCodes }) => {
 				</ContainerHeader>
 
 				<select>
-					<option value="">Premier Legue 2019/2020</option>
+					<option value="">Premier League de 2019/2020</option>
 				</select>
 			</div>
 
