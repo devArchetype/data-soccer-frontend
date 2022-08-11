@@ -11,8 +11,9 @@ export const PageContainer = styled.main `
 export const TeamContainerHeader = styled.div `
     width: 100%;
     display: inline-flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 0.5rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
     border-radius: 15px;
@@ -25,8 +26,7 @@ export const TeamContainerHeader = styled.div `
     }
 
     a {
-      font-size: 1rem;
-      color: ${(props) => props.theme['blue-700']};
+     line-height: 100%;
     }
 `;
 

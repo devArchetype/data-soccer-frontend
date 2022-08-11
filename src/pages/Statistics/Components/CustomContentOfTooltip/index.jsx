@@ -11,29 +11,6 @@ import {
 	ResponsiveContainer
 } from 'recharts';
 
-const data = [
-	{
-		position: 'Atacante',
-		gols: 325,
-		assistencias: 342
-	},
-	{
-		position: 'Meio de Campo',
-		gols: 203,
-		assistencias: 255,
-	},
-	{
-		position: 'Defensor',
-		gols: 94,
-		assistencias: 23,
-	},
-	{
-		position: 'Goleiro',
-		gols: 11,
-		assistencias: 26,
-	},
-];
-
 const getIntroOfPage = (label) => {
 	if (label === 'Atacante') {
 		return 'O atacante ou avançado é uma posição de linha do futebol. Desempenha função ofensiva, com objetivo de fazer gols ou dar assistências para seus companheiros.';

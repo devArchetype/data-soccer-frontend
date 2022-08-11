@@ -65,18 +65,26 @@ export const RadarChartComponent = () => {
 		];
 	};
 
-	const fillChartNationality = () => {
-		const data = dataChartNationality.map((obj) => {
-			for (let i in obj) {
-				return {
-					subject: obj.nacionalidade,
-					gols: obj[i]
-				};
-			}
-		});
+	const getCountryPortugueseName = (englishName) => {
+		const translate = {
+			'Belgium':'Bélgica',
+			'Brazil':'Brasil',
+			'England':'Inglaterra',
+			'France':'França',
+			'Spain':'Espanha',
+			'outros':'Outros',
+		};
 
-		console.log(data);
-		return data;
+		return englishName ? translate[englishName] : englishName;
+	};
+
+	const fillChartNationality = () => {
+		return dataChartNationality.map(({ nacionalidade, gols }) => {
+			return {
+				nacionalidade: getCountryPortugueseName(nacionalidade),
+				gols: Number(gols),
+			};
+		});
 	};
 
 	return (

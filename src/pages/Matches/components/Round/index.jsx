@@ -38,8 +38,8 @@ export const Round = ({ roundNumber, matchesData, index }) => {
 					onClick={handleMatchesListCollapse}
 				>
 					{matchesListCollapse
-						? <CaretUp weight='bold'/>
-						: <CaretDown weight='bold'/>}
+						? <CaretUp weight='bold' onClick={handleMatchesListCollapse} />
+						: <CaretDown weight='bold' onClick={handleMatchesListCollapse} />}
 				</Button>
 			</RoundHeader>
 			<MatchesList isCollapsed={matchesListCollapse}>
