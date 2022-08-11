@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { GraphicContainer } from './styles.js';
 import {
 	BarChart,
@@ -63,6 +64,29 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 export function CustomContentOfTooltip() {
+	const [dataChart, setDataChart] = useState([]);
+
+	useEffect(() => {
+		fetch('https://datasoccer.000webhostapp.com/getStats.php?stats=1')
+			.then(response => response.json())
+			.then(response => handleData(response));
+	}, []);
+
+	const handleData = async (response) => {
+		const data = (await response).data;
+		setDataChart(Object.entries(data));
+	};
+
+	const fillChart = () => {
+		const data = dataChart.map(([position, stats]) => {
+			return {
+				position: position === 'MeioDeCampo' ? 'Meio de Campo' : position === 'Zaqueiro' ? 'Defensor' : position,
+				gols: stats[0].gols,
+				assistencias: stats[0].assistencia
+			};
+		});
+		return data;
+	};
 
 	return (
 		<GraphicContainer>
@@ -74,7 +98,7 @@ export function CustomContentOfTooltip() {
 				<BarChart
 					width={500}
 					height={300}
-					data={data}
+					data={fillChart()}
 					margin={{
 						top: 5,
 						right: 30,

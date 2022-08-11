@@ -13,12 +13,12 @@ export const Statistics = () => {
       SUM(assistencias) AS assistencia,
       SUM(gols) AS gols
     FROM jogador
-    WHERE posicao = 'Midfielder';
+    WHERE posicao = 'Atacante';
 
-    -- Demais posições: 'Goalkeeper', 'Forward', 'Defender'`
+    -- Demais posições: 'Goleiro', 'Meio de Campo', 'Defensor'`
 		},
 		{
-			label: 'Principais nacionalidades dos jogadores',
+			label: 'Qtd. de Gols por Nacionalidades dos Jogadores',
 			code: `SELECT
       nacionalidade,
       SUM(gols) AS gols

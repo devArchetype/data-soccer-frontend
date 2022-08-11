@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { GraphicContainer } from './styles.js';
 import {
 	Radar,
@@ -8,68 +9,82 @@ import {
 	Legend
 } from 'recharts';
 
-const nationalityData = [
-	{
-		subject: 'Inglaterra',
-		quantity: 233,
-	},
-	{
-		subject: 'Brasil',
-		quantity: 269,
-	},
-	{
-		subject: 'Estados Unidos',
-		quantity: 286,
-	},
-	{
-		subject: 'México',
-		quantity: 123,
-	},
-	{
-		subject: 'Alemanha',
-		quantity: 85,
-	},
-	{
-		subject: 'Outros',
-		quantity: 230,
-	}
-];
-
-const teamsData = [
-	{
-		subject: 'Vitórias',
-		mandante: 23,
-		visitante: 27
-	},
-	{
-		subject: 'Derrotas',
-		mandante: 18,
-		visitante: 19
-	},
-	{
-		subject: 'Cartões Amarelo',
-		mandante: 33,
-		visitante: 24
-	},
-	{
-		subject: 'Cartões Vermelhos',
-		mandante: 29,
-		visitante: 20
-	},
-	{
-		subject: 'Empates',
-		mandante:24,
-		visitante: 16
-	},
-];
-
 export const RadarChartComponent = () => {
+	const [dataChartNationality, setDataChartNationality] = useState([]);
+	const [dataChartComparation, setDataChartComparation] = useState([]);
+
+	useEffect(() => {
+		fetch('https://datasoccer.000webhostapp.com/getStats.php?stats=2')
+			.then(response => response.json())
+			.then(response => handleDataNationality(response));
+	}, []);
+
+	useEffect(() => {
+		fetch('https://datasoccer.000webhostapp.com/getStats.php?stats=3')
+			.then(response => response.json())
+			.then(response => handleDataComparation(response));
+	}, []);
+
+	const handleDataNationality = async (response) => {
+		const data = (await response).data;
+		setDataChartNationality(data);
+	};
+
+	const handleDataComparation= async (response) => {
+		const data = (await response).data;
+		setDataChartComparation(data);
+	};
+
+	const fillChartComparation = () => {
+		return [
+			{
+				subject: 'Vitórias',
+				mandante: dataChartComparation.vitoria_mandante,
+				visitante: dataChartComparation.vitoria_visitante,
+			},
+			{
+				subject: 'Derrotas',
+				mandante: dataChartComparation.derrota_mandante,
+				visitante: dataChartComparation.derrota_visitante,
+			},
+			{
+				subject: 'Cartões Amarelo',
+				mandante: dataChartComparation.cartao_amarelo_mandante,
+				visitante: dataChartComparation.cartao_amarelo_visitante,
+			},
+			{
+				subject: 'Cartões Vermelhos',
+				mandante: dataChartComparation.cartao_vermelho_mandante,
+				visitante: dataChartComparation.cartao_vermelho_visitante,
+			},
+			{
+				subject: 'Empates',
+				mandante: dataChartComparation.empate_mandante,
+				visitante: dataChartComparation.empate_visitante,
+			},
+		];
+	};
+
+	const fillChartNationality = () => {
+		const data = dataChartNationality.map((obj) => {
+			for (let i in obj) {
+				return {
+					subject: obj.nacionalidade,
+					gols: obj[i]
+				};
+			}
+		});
+
+		console.log(data);
+		return data;
+	};
+
 	return (
 		<GraphicContainer>
 			<div className="graphic-responsive">
 				<div className="chart">
 					<div className="title">
-						<h2>Principais Nacionalidades dos Jogadores</h2>
+						<h2>Qtd. de Gols por Nacionalidades dos Jogadores</h2>
 					</div>
 
 					<RadarChart
@@ -78,14 +93,14 @@ export const RadarChartComponent = () => {
 						outerRadius={130}
 						width={500}
 						height={330}
-						data={nationalityData}
+						data={fillChartNationality()}
 					>
 						<PolarGrid />
-						<PolarAngleAxis dataKey="subject" />
+						<PolarAngleAxis dataKey="nacionalidade" />
 						<PolarRadiusAxis />
 						<Radar
-							name="Nacionalidade"
-							dataKey="quantity"
+							name="Qtd. de Gols"
+							dataKey="gols"
 							stroke="#06aa48"
 							fill="#06aa48"
 							fillOpacity={0.6}
@@ -105,7 +120,7 @@ export const RadarChartComponent = () => {
 						outerRadius={130}
 						width={500}
 						height={330}
-						data={teamsData}
+						data={fillChartComparation()}
 					>
 						<PolarGrid />
 						<PolarAngleAxis dataKey="subject" />
