@@ -8,7 +8,12 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   border-radius: 15px;
+  border: 2px solid transparent;
   background-color: ${(props) => props.theme['gray-100']};
+
+  &:focus-within {
+    border-color: ${(props) => props.theme['green-300']};
+  }
 `;
 
 export const InputWrap = styled.div `
@@ -20,13 +25,6 @@ export const InputWrap = styled.div `
   padding-right: 0.1rem;
   font-size: 1.5rem;
   border-radius: 15px;
-  border: 2px solid transparent;
-  background-color: ${(props) => props.theme['gray-200']};
-
-  &:focus-within {
-    border-color: ${(props) => props.theme['green-300']};
->>>>>>> page/Teams
-  }
 `;
 
 export const InputBox = styled.input`
@@ -38,7 +36,7 @@ export const InputBox = styled.input`
   outline: none;
   border: none;
   border-radius: 15px;
-  background-color: ${(props) => props.theme['gray-200']};
+  background-color: ${(props) => props.theme['gray-100']};
 `;
 
 export const Label = styled.label`

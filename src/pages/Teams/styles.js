@@ -9,16 +9,18 @@ export const TeamsContainer = styled.main`
   gap: 1rem;
 
   .teams-presentation {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 1.5rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-content: center;
+    justify-items: center;
+    gap: 1rem;
+    list-style: none;
   }
 `;
 
 export const Team = styled.div`
-  min-width: 23.5%;
+  width: 100%;
   min-height: 157px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -42,7 +44,7 @@ export const Team = styled.div`
 
     .stats {
       display: flex;
-      gap: 1rem;
+      gap: 0.5rem;
 
       ul {
         list-style: none;
@@ -53,7 +55,7 @@ export const Team = styled.div`
           gap: .2rem;
 
           img {
-            width: .8rem;
+            width: .7rem;
           }
         }
 
